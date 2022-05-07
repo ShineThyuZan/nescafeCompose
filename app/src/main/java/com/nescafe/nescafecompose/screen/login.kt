@@ -65,7 +65,7 @@ fun LoginView() {
                 layoutPadding = layoutPadding,
                 isError = state.usernameError,
                 leadingIcon = painterResource(id = R.drawable.ic_name),
-                shouldShowLeadingIcon = false
+                shouldShowLeadingIcon = true
             )
 
             CommonTextField(
@@ -73,8 +73,10 @@ fun LoginView() {
                 textError = "Incorrect password!",
                 value = state.password,
                 onTextChanged = {
-                    LoginAction.ChangePassword(
-                        password = it
+                    vm.onAction(
+                        LoginAction.ChangePassword(
+                            password = it
+                        )
                     )
                 },
                 layoutPadding = layoutPadding,
